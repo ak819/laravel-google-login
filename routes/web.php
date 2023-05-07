@@ -37,6 +37,6 @@ Route::controller(GoogleAuthController::class)->group(function(){
     Route::get('google-auth/callback', 'handleGoogleCallback');
 });
 
-Route::get('/', [UserController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [UserController::class, 'index'])->middleware('auth');
 Route::get('/home', [UserController::class, 'index'])->name('home')->middleware('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
